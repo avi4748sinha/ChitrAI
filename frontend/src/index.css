@@ -1,0 +1,183 @@
+/* Sab elements ka box model predictable banata hai */
+* {
+  box-sizing: border-box;
+}
+
+/* Browser ke default margin ko remove kar rahe hain */
+body {
+  margin: 0;
+
+  /* Application ka basic font */
+  font-family: Arial, sans-serif;
+
+  /* White background */
+  background: #ffffff;
+
+  /* Default text color */
+  color: #111111;
+}
+
+/* Poore application ka wrapper */
+.app {
+  min-height: 100vh;
+}
+
+/* ---------------- HEADER ---------------- */
+.logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 10px;
+}
+.header {
+  /* Header ka text center */
+  text-align: center;
+
+  /* Upar aur neeche spacing */
+  padding: 50px 20px 30px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+/* ChitrAI mein sirf AI red hoga */
+.header h1 span {
+  color: #e00000;
+}
+
+.header p {
+  margin-top: 10px;
+  color: #666666;
+  font-size: 16px;
+}
+
+
+/* ---------------- MAIN CONTAINER ---------------- */
+
+.container {
+  /*
+    Maximum width 900px.
+    90% ka matlab small screen par
+    screen ke according width adjust hogi.
+  */
+  width: min(900px, 90%);
+
+  /* auto se container horizontally center */
+  margin: 30px auto;
+
+  /* Sections ke beech 30px gap */
+  display: grid;
+  gap: 30px;
+}
+
+
+/* ---------------- CARDS ---------------- */
+
+.generator,
+.preview {
+  /* Light border */
+  border: 1px solid #e5e5e5;
+
+  /* Rounded corners */
+  border-radius: 16px;
+
+  /* Card ke andar spacing */
+  padding: 25px;
+}
+
+.generator h2,
+.preview h2 {
+  margin-top: 0;
+}
+
+
+/* ---------------- TEXTAREA ---------------- */
+
+textarea {
+  /* Parent ki width ke according */
+  width: 100%;
+
+  /* Initial height */
+  min-height: 130px;
+
+  padding: 15px;
+
+  margin: 15px 0;
+
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+
+  /* User textarea ko vertically resize kar sakta hai */
+  resize: vertical;
+
+  font-size: 15px;
+  font-family: inherit;
+}
+
+/* Jab textarea par user click/type kare */
+textarea:focus {
+  outline: none;
+  border-color: #e00000;
+}
+
+
+/* ---------------- BUTTON ---------------- */
+
+button {
+  width: 100%;
+
+  padding: 14px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #111111;
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+/* Mouse button ke upar aaye */
+button:hover {
+  background: #e00000;
+}
+
+/* Jab prompt empty ho */
+button:disabled {
+  background: #cccccc;
+
+  /* Disabled button par normal pointer nahi */
+  cursor: not-allowed;
+}
+
+
+/* ---------------- IMAGE PREVIEW ---------------- */
+
+.image-box {
+  /*
+    Abhi actual image nahi hai,
+    isliye ek placeholder box bana rahe hain.
+  */
+  min-height: 350px;
+
+  /* Dashed border placeholder ko visually show karta hai */
+  border: 2px dashed #dddddd;
+
+  border-radius: 12px;
+
+  /*
+    Flexbox se placeholder text
+    horizontally + vertically center.
+  */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #888888;
+  text-align: center;
+}

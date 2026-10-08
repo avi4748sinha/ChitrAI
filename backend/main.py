@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
+
 
 
 # ============================================================
@@ -15,6 +17,16 @@ app = FastAPI(
     # Default FastAPI Swagger Docs ko disable kar rahe hain
     # kyunki humein apna custom branded /docs page banana hai.
     docs_url=None
+)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 from image_routes import router as image_router
