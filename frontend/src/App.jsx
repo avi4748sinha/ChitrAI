@@ -54,6 +54,21 @@ function App() {
     }
   };
 
+const downloadImage = () => {
+  if (!image) return;
+
+  const link = document.createElement("a");
+  link.href = image;
+  link.download = "chitrai-image.png";
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
+
+
+
   return (
     <div className="app">
 
@@ -104,18 +119,24 @@ function App() {
           <div className="image-box">
 
             {/* Image generate ho rahi hai */}
-            {loading && <p>Generating your image...</p>}
+            {/* Generated image + Download button */}
+{!loading && !error && image && (
+  <>
+    <img
+      src={image}
+      alt="AI Generated"
+    />
 
-            {/* API error */}
-            {!loading && error && <p>{error}</p>}
-
-            {/* Generated image */}
-            {!loading && !error && image && (
-              <img
-                src={image}
-                alt="AI Generated"
-              />
-            )}
+    <button
+      type="button"
+      onClick={downloadImage}
+      className="download-button"
+    >
+      Download Image
+    </button>
+  </>
+)}
+            
 
             {/* Starting state */}
             {!loading && !error && !image && (
@@ -123,8 +144,11 @@ function App() {
             )}
 
           </div>
+          
+          
 
         </section>
+        
 
       </main>
     </div>

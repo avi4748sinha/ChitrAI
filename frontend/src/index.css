@@ -181,3 +181,20 @@ button:disabled {
   color: #888888;
   text-align: center;
 }
+
+
+.download-button {
+  display: block;
+  margin: 16px auto;
+  padding: 12px 24px;
+  background: #e11d1d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.download-button:hover {
+  background: #b91c1c;
+}
